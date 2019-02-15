@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: external-svc
+subsets:
+  - addresses:
+    - ip: 74.125.130.138
+    - ip: 98.137.246.7
+    ports:
+    - port: 80

@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: kubia-deamonset
+spec:
+  selector:
+    matchLabels:
+      env: ssd-monitor
+  template:
+    metadata:
+      labels:
+        env: ssd-monitor
+    spec:
+      nodeSelector:
+        disk: ssd
+      containers:
+      - image: luksa/ssd-monitor
+        name: kubia
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+  
